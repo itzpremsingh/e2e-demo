@@ -10,4 +10,10 @@ if __name__ == "__main__":
     elif argv[1] == "server":
         from server import server
 
-        server()
+        try:
+            server()
+        except OSError:
+            print("Port already in use.")
+
+    else:
+        print("Usage: python main.py <server/client>")
